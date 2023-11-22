@@ -33,9 +33,14 @@ def check_all_messages(message):
     response('I\'m doing fine, and you?', ['how', 'are', 'you','doing'], required_words=['how'])
     response('Thank you!', ['i','love', 'code', 'palace'], required_words=['code','palace'])
 
+    response (long.R_ATING, ['how', 'old', 'you'], required_words=['old','you'])
+    response (long.R_DESC, ['who', 'describe', 'alvin', 'adams'], required_words=['describe','alvin','adams'])
+    response (long.R_ADVC, ['advice', 'me', 'life'], required_words=['advice','me'])
+    response (long.R_KENYA, ['about', 'kenya', 'tell'], required_words=['about','kenya'])
+    response (long.R_MORINGA, ['where', 'moringa', 'school', 'about'], required_words=['moringa','school','about'])
     best_match = max(highest_prob_list, key=highest_prob_list.get)
-    print(highest_prob_list)
-    return best_match 
+    # print(highest_prob_list)
+    return long.unknown() if highest_prob_list[best_match] < 1 else best_match
 
 #Create a function get_reponse
 def get_response(user_input):
